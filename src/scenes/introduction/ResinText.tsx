@@ -3,17 +3,19 @@ import { RGBELoader } from 'three-stdlib'
 import { useFrame, useLoader } from '@react-three/fiber'
 import { useFBO, Center, Text3D } from '@react-three/drei'
 import { MeshRefractionMaterial } from './shaders/MeshRefractionMaterial'
-import { Grid } from './Grid'
 
 import type { Group } from 'three'
+
+const AERODYNAMICS_WORKSHOP_HDR =
+  'https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/aerodynamics_workshop_1k.hdr'
+
+const TEXT_LETTER_SPACING = -0.03
+const TEXT_SCALE = 5
 
 export const ResinText = ({ children, config, font = '/Inter_Medium_Regular.json', ...props }) => {
   const ref = useRef<Group>()
   const fbo = useFBO(1024)
-  const texture = useLoader(
-    RGBELoader,
-    'https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/aerodynamics_workshop_1k.hdr',
-  )
+  const texture = useLoader(RGBELoader, AERODYNAMICS_WORKSHOP_HDR)
 
   let oldBg
   useFrame((state) => {
@@ -42,11 +44,11 @@ export const ResinText = ({ children, config, font = '/Inter_Medium_Regular.json
             castShadow
             bevelEnabled
             font={font}
-            scale={5}
-            letterSpacing={-0.03}
+            scale={TEXT_SCALE}
+            letterSpacing={TEXT_LETTER_SPACING}
             height={0.25}
             bevelSize={0.01}
-            bevelSegments={10}
+            bevelSegments={1}
             curveSegments={128}
             bevelThickness={0.01}>
             {children}
@@ -54,11 +56,15 @@ export const ResinText = ({ children, config, font = '/Inter_Medium_Regular.json
             <MeshRefractionMaterial uSceneTex={fbo.texture} {...config} />
           </Text3D>
         </Center>
-        <Grid />
       </group>
       {/** Double up the text as a flat layer at the bottom for more interesting refraction */}
       <Center scale={[0.8, 1, 1]} front top {...props}>
-        <Text3D font={font} scale={5} letterSpacing={-0.03} height={0.01} curveSegments={32}>
+        <Text3D
+          font={font}
+          scale={TEXT_SCALE}
+          letterSpacing={TEXT_LETTER_SPACING}
+          height={0.01}
+          curveSegments={32}>
           {children}
           <meshBasicMaterial color={config.gColor} />
         </Text3D>

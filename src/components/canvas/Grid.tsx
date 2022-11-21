@@ -1,20 +1,30 @@
 import { Instance, Instances } from '@react-three/drei'
 
+const DARK_GRID_COLOR = '#999'
+// const DARK_GRID_COLOR = '#aaa'
+// const DARK_GRID_COLOR = '#000'
+const LIGHT_GRID_COLOR = '#bbb'
+// const LIGHT_GRID_COLOR = '#ccc'
+// const LIGHT_GRID_COLOR = '#aaa'
+
 export const Grid = ({ number = 23, lineWidth = 0.026, height = 0.5 }) => (
-  // Renders a grid and crosses as instances
   <Instances position={[0, -1.02, 0]}>
     <planeGeometry args={[lineWidth, height]} />
-    <meshBasicMaterial color='#999' />
+    <meshBasicMaterial color={DARK_GRID_COLOR} />
     {Array.from({ length: number }, (_, y) =>
       Array.from({ length: number }, (_, x) => (
         <group
           key={x + ':' + y}
-          position={[x * 2 - Math.floor(number / 2) * 2, -0.01, y * 2 - Math.floor(number / 2) * 2]}>
+          position={[
+            x * 2 - Math.floor(number / 2) * 2,
+            -0.01,
+            y * 2 - Math.floor(number / 2) * 2,
+          ]}>
           <Instance rotation={[-Math.PI / 2, 0, 0]} />
           <Instance rotation={[-Math.PI / 2, 0, Math.PI / 2]} />
         </group>
       )),
     )}
-    <gridHelper args={[100, 100, '#bbb', '#bbb']} position={[0, -0.01, 0]} />
+    <gridHelper args={[100, 100, LIGHT_GRID_COLOR, LIGHT_GRID_COLOR]} position={[0, -0.01, 0]} />
   </Instances>
 )

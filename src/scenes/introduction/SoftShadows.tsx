@@ -1,6 +1,8 @@
 import { RandomizedLight, AccumulativeShadows } from '@react-three/drei'
 
-export const SoftShadows = ({ color }: { color: string }) => (
+type SoftShadowsProps = { color: string }
+
+export const SoftShadows = ({ color }: SoftShadowsProps) => (
   <AccumulativeShadows
     temporal
     frames={100}
@@ -8,7 +10,7 @@ export const SoftShadows = ({ color }: { color: string }) => (
     colorBlend={5}
     toneMapped={true}
     alphaTest={0.9}
-    opacity={1}
+    opacity={0.75}
     scale={30}
     position={[0, -1.01, 0]}>
     <RandomizedLight

@@ -8,8 +8,7 @@ const Layout = forwardRef<any, LayoutProps>(({ children, ...props }, ref) => {
   return (
     <div
       ref={mergeRefs([ref, localRef])}
-      className='absolute top-0 left-0 z-10 w-screen h-screen overflow-hidden dom bg-zinc-900 text-gray-50'
-      style={{ backgroundColor: '#f2f2f5' }}>
+      className='absolute top-0 left-0 z-10 w-screen h-screen overflow-hidden font-mono dom text-zync-900 bg-zync-50'>
       {children}
     </div>
   )
