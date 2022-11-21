@@ -2,6 +2,8 @@ import * as THREE from 'three'
 import { extend, useThree } from '@react-three/fiber'
 
 class MeshRefractionMaterialImpl extends THREE.MeshPhysicalMaterial {
+  uniforms: any
+
   constructor(args) {
     super(args)
 
@@ -14,18 +16,18 @@ class MeshRefractionMaterialImpl extends THREE.MeshPhysicalMaterial {
       uColor: { value: new THREE.Color('white') },
       uSat: { value: 0.0 },
       uIntensity: { value: 1.0 },
-      winResolution: { value: new THREE.Vector2() }
+      winResolution: { value: new THREE.Vector2() },
     }
 
     this.onBeforeCompile = (shader) => {
       shader.uniforms = {
         ...shader.uniforms,
-        ...this.uniforms
+        ...this.uniforms,
       }
 
       shader.fragmentShader = shader.fragmentShader.replace(
         'outgoingLight = outgoingLight * ( 1.0 - material.clearcoat * Fcc ) + clearcoatSpecular * material.clearcoat;',
-        ''
+        '',
       )
 
       shader.fragmentShader =
@@ -75,15 +77,15 @@ class MeshRefractionMaterialImpl extends THREE.MeshPhysicalMaterial {
         refractCol /= float( 16 );
         
         outgoingLight = mix(refractCol * uIntensity, uColor, 0.25) * ( 1.0 - material.clearcoat * Fcc ) + clearcoatSpecular * material.clearcoat;
-        #include <output_fragment>`
+        #include <output_fragment>`,
       )
     }
 
     Object.keys(this.uniforms).forEach((name) =>
       Object.defineProperty(this, name, {
         get: () => this.uniforms[name].value,
-        set: (v) => (this.uniforms[name].value = v)
-      })
+        set: (v) => (this.uniforms[name].value = v),
+      }),
     )
   }
 }

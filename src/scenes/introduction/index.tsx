@@ -1,13 +1,13 @@
-import { createRoot } from 'react-dom/client'
-import './styles.css'
+// import { createRoot } from 'react-dom/client'
+// import './styles.css'
 import { App } from './App'
 import { Leva } from 'leva'
-import { Logo } from '@pmndrs/branding'
+// import { Logo } from '@pmndrs/branding'
 
 function Overlay() {
   return (
     <div style={{ position: 'absolute', top: 0, left: 0, pointerEvents: 'none', width: '100%', height: '100%' }}>
-      <a href="https://pmnd.rs/" style={{ position: 'absolute', bottom: 40, left: 90, fontSize: '13px' }}>
+      <a href='https://pmnd.rs/' style={{ position: 'absolute', bottom: 40, left: 90, fontSize: '13px' }}>
         pmnd.rs
         <br />
         dev collective
@@ -18,11 +18,11 @@ function Overlay() {
   )
 }
 
-createRoot(document.getElementById('root')).render(
+export const IntroductionScene = () => (
   <>
     <App />
-    <Overlay />
-    <Logo style={{ position: 'absolute', bottom: 40, left: 40, width: 30 }} />
+    {/* <Overlay /> */}
+    {/* <Logo style={{ position: 'absolute', bottom: 40, left: 40, width: 30 }} /> */}
     <Leva collapsed />
   </>
 )
