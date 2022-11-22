@@ -8,7 +8,7 @@ const LIGHT_GRID_COLOR = '#bbb'
 // const LIGHT_GRID_COLOR = '#aaa'
 
 export const Grid = ({ number = 23, lineWidth = 0.026, height = 0.5 }) => (
-  <Instances position={[0, -1.02, 0]}>
+  <Instances position={[0, -0.02, 0]}>
     <planeGeometry args={[lineWidth, height]} />
     <meshBasicMaterial color={DARK_GRID_COLOR} />
     {Array.from({ length: number }, (_, y) =>

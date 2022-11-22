@@ -5,7 +5,7 @@ import { SoftShadows } from './SoftShadows'
 import { takeScreenshot } from '../../utilities/takeScreenshot'
 import { Grid } from '@/components/canvas/Grid'
 import { DefaultCamera } from '@/components/canvas/DefaultCamera'
-import { RotationControls } from '@/components/canvas/RotationControls'
+import { DefaultControls } from '@/components/canvas/DefaultControls'
 
 const HtmlExplanation = () => {
   return (
@@ -53,7 +53,7 @@ export const IntroductionScene = () => {
         Graphics
       </ResinText>
       <Grid />
-      <RotationControls />
+      <DefaultControls />
       {/** The environment is just a bunch of shapes emitting light. This is needed for the clear-coat */}
       <Environment resolution={32}>
         <group rotation={[-Math.PI / 2, 0, 0]}>
