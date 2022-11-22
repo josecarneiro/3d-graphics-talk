@@ -37,6 +37,9 @@ export const CodeExampleInner = ({
       ...(template === 'vanilla' && {
         '/src/index.js': content.trim(),
       }),
+      ...(template === 'vanilla-ts' && {
+        '/src/index.ts': content.trim(),
+      }),
     }),
     [content, template],
   )

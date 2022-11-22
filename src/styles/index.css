@@ -28,7 +28,17 @@
   padding: 1em;
 } */
 
-.codeExampleWrapper,
+.CodeExampleHtmlWrapper {
+  width: calc(100vw - 2em);
+  height: calc(100vh - 8em);
+  pointer-events: all;
+}
+
+.CodeExampleHtmlWrapper * {
+  pointer-events: all;
+}
+
+.CodeExampleHtmlWrapperChild,
 .sp-wrapper,
 .sp-layout,
 .sp-stack {

@@ -18,7 +18,7 @@ const TruckModel = (props) => (
   />
 )
 
-export const WebGlScene = () => {
+export const ThreeScene = () => {
   const [showCodeExample, setShowCodeExample] = useState(false)
   const displayCodeExample = () => {
     setShowCodeExample(!showCodeExample)
@@ -37,7 +37,7 @@ export const WebGlScene = () => {
       )}
       <Grid />
       <DefaultCamera />
-      <DefaultControls autoRotate enableZoom={!showCodeExample} />
+      <DefaultControls autoRotate />
       <DefaultLights />
       <Center top>
         <TruckModel onClick={displayCodeExample} scale={2} />

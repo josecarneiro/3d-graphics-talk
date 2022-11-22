@@ -1,4 +1,5 @@
 import { OverlayPage } from '@/components/dom/OverlayPage'
+import { R3fScene } from '@/scenes/e-r3f'
 import { GeometryScene } from '@/scenes/i-geometry'
 
 const Page = () => (
@@ -8,6 +9,6 @@ const Page = () => (
   </>
 )
 
-Page.canvas = () => <GeometryScene />
+Page.canvas = () => <R3fScene />
 
 export default Page

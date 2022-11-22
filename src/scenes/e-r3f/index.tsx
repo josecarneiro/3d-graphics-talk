@@ -18,7 +18,7 @@ const TruckModel = (props) => (
   />
 )
 
-export const WebGlScene = () => {
+export const R3fScene = () => {
   const [showCodeExample, setShowCodeExample] = useState(false)
   const displayCodeExample = () => {
     setShowCodeExample(!showCodeExample)
@@ -28,16 +28,10 @@ export const WebGlScene = () => {
   }
   return (
     <>
-      {showCodeExample && (
-        <CodeExample
-          onClose={hideCodeExample}
-          content={CODE_EXAMPLE_CONTENT}
-          template='vanilla-ts'
-        />
-      )}
+      {showCodeExample && <CodeExample onClose={hideCodeExample} content={CODE_EXAMPLE_CONTENT} />}
       <Grid />
       <DefaultCamera />
-      <DefaultControls autoRotate enableZoom={!showCodeExample} />
+      <DefaultControls autoRotate />
       <DefaultLights />
       <Center top>
         <TruckModel onClick={displayCodeExample} scale={2} />

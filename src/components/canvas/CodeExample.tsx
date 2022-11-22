@@ -7,17 +7,12 @@ type CodeExampleProps = CodeExampleInnerProps & {
 }
 
 export const CodeExample = ({ onClose, ...props }: CodeExampleProps) => {
-  const callback = () => onClose?.()
+  // const callback = () => onClose?.()
+  const callback = () => {}
   const ref = useOutsideAlerter(callback)
   return (
-    <Html
-      className='CodeExampleHtmlWrapper'
-      style={{
-        width: `calc(100vw - 2em)`,
-        height: `calc(100vh - 8em)`,
-        transform: `translate(-50%, -50%)`,
-      }}>
-      <div ref={ref} className='codeExampleWrapper'>
+    <Html className='CodeExampleHtmlWrapper' center>
+      <div ref={ref} className='CodeExampleHtmlWrapperChild'>
         <CodeExampleInner {...props} />
       </div>
     </Html>
