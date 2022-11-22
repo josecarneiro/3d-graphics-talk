@@ -3,11 +3,13 @@ import { Grid } from '@/components/canvas/Grid'
 import { DefaultCamera } from '@/components/canvas/DefaultCamera'
 import { RotationControls } from '@/components/canvas/RotationControls'
 import { Center } from '@react-three/drei'
-import { EdgeMaterial, GlossyMaterial } from '@/components/canvas/materials'
+import { GlossyMaterial } from '@/components/canvas/materials'
 import {
   GenericObjectShowcaseProps,
   GenericObjectShowcase,
 } from '@/components/canvas/GenericObjectShowcaseProps'
+import { FlowingShaderMaterial } from '@/components/canvas/materials/FlowingShaderMaterial'
+import { Rotate } from '@/components/canvas/Rotate'
 
 const Page = (props) => (
   <>
@@ -22,13 +24,12 @@ const MESH_COLOR = 'blue'
 
 const MaterialShowcase = ({ children, ...props }: GenericObjectShowcaseProps) => (
   <GenericObjectShowcase {...props}>
-    <mesh
-    // rotation={[-Math.PI / 2, 0, 0]}
-    >
-      {/* <planeGeometry args={[1, 1, 1]} /> */}
-      <coneGeometry args={[0.5, 1, 3]} />
-      {children}
-    </mesh>
+    <Rotate>
+      <mesh>
+        <icosahedronGeometry args={[0.5, 0]} />
+        {children}
+      </mesh>
+    </Rotate>
   </GenericObjectShowcase>
 )
 
@@ -69,6 +70,9 @@ Page.canvas = (props) => (
         </MaterialShowcase>
         <MaterialShowcase label='Toon' position={[4, 0, 3]}>
           <meshToonMaterial color={MESH_COLOR} />
+        </MaterialShowcase>
+        <MaterialShowcase label='Shader' position={[6, 0, 3]}>
+          <FlowingShaderMaterial />
         </MaterialShowcase>
       </group>
     </Center>

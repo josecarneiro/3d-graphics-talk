@@ -1,4 +1,4 @@
-import { RandomizedLight, AccumulativeShadows } from '@react-three/drei'
+import { RandomizedLight, AccumulativeShadows, ContactShadows } from '@react-three/drei'
 
 type SoftShadowsProps = { color: string }
 
@@ -25,3 +25,16 @@ export const SoftShadows = ({ color }: SoftShadowsProps) => (
     />
   </AccumulativeShadows>
 )
+
+/*
+export const SoftShadows = ({ color }: SoftShadowsProps) => (
+  <ContactShadows
+    position={[0, 0, 0]}
+    scale={10}
+    far={3}
+    blur={3}
+    rotation={[Math.PI / 2, 0, 0]}
+    color={'black'}
+  />
+)
+*/

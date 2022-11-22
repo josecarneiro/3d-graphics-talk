@@ -2,9 +2,10 @@ import { OverlayPage } from '@/components/dom/OverlayPage'
 import { Grid } from '@/components/canvas/Grid'
 import { DefaultCamera } from '@/components/canvas/DefaultCamera'
 import { RotationControls } from '@/components/canvas/RotationControls'
-import { Center, Edges, Html } from '@react-three/drei'
+import { Center } from '@react-three/drei'
 import { EdgeMaterial, GlossyMaterial, TransparentMaterial } from '@/components/canvas/materials'
 import { GenericObjectShowcase } from '@/components/canvas/GenericObjectShowcaseProps'
+import { Rotate } from '@/components/canvas/Rotate'
 
 const Page = (props) => (
   <>
@@ -30,16 +31,20 @@ Page.canvas = (props) => (
     <Center>
       <group scale={2}>
         <GenericObjectShowcase label='Geometry'>
-          <mesh>
-            <boxGeometry args={[1, 1, 1]} />
-            <EdgeMaterial color={MESH_COLOR} />
-          </mesh>
+          <Rotate>
+            <mesh>
+              <boxGeometry args={[1, 1, 1]} />
+              <EdgeMaterial color={MESH_COLOR} />
+            </mesh>
+          </Rotate>
         </GenericObjectShowcase>
         <GenericObjectShowcase label='Material' position={[2, 0, 0]}>
-          <mesh rotation={[-Math.PI / 2, 0, 0]}>
-            <planeGeometry args={[1, 1, 1]} />
-            <GlossyMaterial color={MESH_COLOR} />
-          </mesh>
+          <Rotate>
+            <mesh rotation={[-Math.PI / 2, 0.5, 0.9]}>
+              <planeGeometry args={[1, 1, 1]} />
+              <GlossyMaterial color={MESH_COLOR} />
+            </mesh>
+          </Rotate>
         </GenericObjectShowcase>
       </group>
     </Center>

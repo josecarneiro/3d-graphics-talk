@@ -50,7 +50,13 @@ Page.canvas = (props) => (
         <GeometryShowcase label='Cone' position={[4, 0, 0]}>
           <coneGeometry args={[0.5, 1, 5]} />
         </GeometryShowcase>
-        <GeometryShowcase label='Torus Knot' position={[6, 0, 0]}>
+        <GeometryShowcase label='Icosahedron' position={[6, 0, 0]}>
+          <icosahedronGeometry args={[0.5, 0]} />
+        </GeometryShowcase>
+        <GeometryShowcase label='Plane' position={[0, 0, 3]}>
+          <planeGeometry args={[1, 1]} />
+        </GeometryShowcase>
+        <GeometryShowcase label='Torus Knot' position={[2, 0, 3]}>
           <torusKnotGeometry args={[0.55, 0.125, 50, 10]} />
         </GeometryShowcase>
       </group>
