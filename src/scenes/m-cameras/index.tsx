@@ -5,6 +5,7 @@ import {
   OrbitControls,
   PerspectiveCamera,
   Environment,
+  useKeyboardControls,
 } from '@react-three/drei'
 import useRefs from 'react-use-refs'
 import { useGLTF } from '@react-three/drei'
@@ -13,6 +14,9 @@ import { BOTTLE_GLTF } from '@/constants/paths'
 
 import type { GroupProps, MeshStandardMaterialProps } from '@react-three/fiber'
 import { DefaultControls } from '@/components/canvas/DefaultControls'
+import { CodeExample } from '@/components/canvas/CodeExample'
+import { useState } from 'react'
+import { useKeyPress } from 'ahooks'
 
 type SodaProps = GroupProps & Pick<MeshStandardMaterialProps, 'wireframe'>
 
@@ -50,13 +54,17 @@ const ModelGroup = ({ size = 10, ...props }) => (
   </group>
 )
 
-export const CamerasCanvasInner = () => {
+export const CamerasCanvasInner = ({ content }) => {
   const [ref, view1, view2] = useRefs()
+  const [showCodeExample, setShowCodeExample] = useState(false)
+  const triggerShowCode = () => setShowCodeExample(true)
+  useKeyPress(['ctrl.enter'], () => triggerShowCode())
   return (
     <div ref={ref} className='container'>
       <div ref={view1} className='relative overflow-hidden' />
       <div ref={view2} className='relative overflow-hidden' />
-      <Canvas eventSource={document.getElementById('root')} className='canvas'>
+      <Canvas className='canvas'>
+        {showCodeExample && <CodeExample content={content} />}
         <View index={1} track={view1}>
           <color attach='background' args={['#fed200']} />
           <PerspectiveCamera makeDefault position={[4, 4, 4]} />
@@ -85,8 +93,8 @@ const Lights = ({ preset }) => (
   </>
 )
 
-export const CamerasScene = () => (
+export const CamerasScene = (props) => (
   <RenderInClientSide>
-    <CamerasCanvasInner />
+    <CamerasCanvasInner {...props} />
   </RenderInClientSide>
 )

@@ -7,11 +7,7 @@ export async function getStaticProps() {
   return { props: { content } }
 }
 
-const Page = () => (
-  <>
-    <OverlayPage />
-  </>
-)
+const Page = () => <></>
 
 Page.canvas = (props) => <WebGlScene {...props} />
 

@@ -29,6 +29,7 @@
     "@react-three/fiber": "^8.9.0",
     "@react-three/postprocessing": "2.7.0",
     "@react-three/rapier": "0.8.2",
+    "ahooks": "^3.7.2",
     "glsl-random": "^0.0.5",
     "leva": "0.9.34",
     "maath": "^0.4.2",

@@ -10,9 +10,7 @@ import { WolfModel } from '@/components/canvas/models/WolfModel'
 
 export const R3fScene = ({ content }) => {
   const [showCodeExample, setShowCodeExample] = useState(false)
-  const displayCodeExample = () => {
-    setShowCodeExample(!showCodeExample)
-  }
+  const displayCodeExample = () => setShowCodeExample(true)
   // const hideCodeExample = () => {
   //   setShowCodeExample(false)
   // }

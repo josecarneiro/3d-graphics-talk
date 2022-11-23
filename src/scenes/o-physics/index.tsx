@@ -10,6 +10,7 @@ import {
 import { easing } from 'maath'
 import { Vector3, MathUtils } from 'three'
 import { CodeExample } from '@/components/canvas/CodeExample'
+import { useKeyPress } from 'ahooks'
 
 const POINTER_COLOR = '#0050dd'
 const BALL_COLOR = '#e17522'
@@ -77,9 +78,8 @@ const Pointer = ({ vec = new Vector3() }) => {
 
 export const PhysicsScene = ({ content }) => {
   const [showCodeExample, setShowCodeExample] = useState(false)
-  const displayCodeExample = () => {
-    setShowCodeExample(!showCodeExample)
-  }
+  const displayCodeExample = () => setShowCodeExample(true)
+  useKeyPress(['ctrl.enter'], () => displayCodeExample())
   return (
     <>
       {showCodeExample && <CodeExample content={content} />}

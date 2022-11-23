@@ -1,4 +1,4 @@
-import { OrbitControls } from '@react-three/drei'
+import { OrbitControls, OrthographicCamera, PerspectiveCamera } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 
 const App = () => (
@@ -17,10 +17,10 @@ const App = () => (
         <meshStandardMaterial color='blue' />
       </mesh>
       <pointLight position={[20, 10, 15]} />
-      <pointLight position={[10, 10, 20]} color='red' />
-      <spotLight position={[10, 10, 20]} color='pink' />
       <ambientLight intensity={0.25} />
       <OrbitControls />
+      <PerspectiveCamera />
+      <OrthographicCamera />
     </Canvas>
   </div>
 )

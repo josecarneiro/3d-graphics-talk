@@ -12,9 +12,7 @@ const MESH_COLOR = 'blue'
 
 export const MeshScene = ({ content }) => {
   const [showCodeExample, setShowCodeExample] = useState(false)
-  const displayCodeExample = () => {
-    setShowCodeExample(!showCodeExample)
-  }
+  const displayCodeExample = () => setShowCodeExample(true)
   return (
     <>
       {showCodeExample && <CodeExample content={content} />}

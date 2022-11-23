@@ -3,7 +3,6 @@ import dynamic from 'next/dynamic'
 import Header from '@/config'
 import Layout from '@/components/dom/Layout'
 import { OverlayMain } from '@/components/dom/OverlayMain'
-import { Leva } from 'leva'
 import '@/styles/index.css'
 // TODO Remove this import
 import '@/scenes/m-cameras/styles.css'
@@ -29,7 +28,6 @@ const App = ({ Component, pageProps = { title: DEFAULT_TITLE } }) => {
         {Component?.fullCanvas && Component.fullCanvas(pageProps)}
         <OverlayMain />
         <Component {...pageProps} />
-        {/* <Leva collapsed hidden /> */}
       </Layout>
     </>
   )

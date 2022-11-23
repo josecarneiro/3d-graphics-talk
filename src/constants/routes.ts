@@ -12,7 +12,7 @@ export const ROUTES = [
   { path: '/chapters/three', name: 'Three.js' },
   { path: '/chapters/r3f', name: '@react-three/fiber' },
   { path: '/chapters/installation', name: 'Installation' },
-  { path: '/chapters/usage', name: 'Usage' },
+  // { path: '/chapters/usage', name: 'Usage' },
   { path: '/chapters/mesh', name: 'Mesh' },
   { path: '/chapters/geometry', name: 'Geometry' },
   { path: '/chapters/materials', name: 'Materials' },

@@ -10,9 +10,7 @@ import { GenericObjectShowcase } from '@/components/canvas/GenericObjectShowcase
 
 export const ThreeScene = ({ content }) => {
   const [showCodeExample, setShowCodeExample] = useState(false)
-  const displayCodeExample = () => {
-    setShowCodeExample(!showCodeExample)
-  }
+  const displayCodeExample = () => setShowCodeExample(true)
   const hideCodeExample = () => {
     setShowCodeExample(false)
   }

@@ -27,9 +27,7 @@ const TruckModel = (props) => <Model url={TRUCK_MODEL_GLTF} {...props} />
 
 export const ComputerGraphicsScene = () => {
   const [showCodeExample, setShowCodeExample] = useState(false)
-  const displayCodeExample = () => {
-    setShowCodeExample(!showCodeExample)
-  }
+  const displayCodeExample = () => setShowCodeExample(true)
   const hideCodeExample = () => {
     setShowCodeExample(false)
   }

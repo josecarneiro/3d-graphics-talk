@@ -85,9 +85,7 @@ const Boxes = (props) => {
 
 export const InstantiationScene = ({ content }) => {
   const [showCodeExample, setShowCodeExample] = useState(false)
-  const displayCodeExample = () => {
-    setShowCodeExample(!showCodeExample)
-  }
+  const displayCodeExample = () => setShowCodeExample(true)
   return (
     <>
       {showCodeExample && <CodeExample content={content} />}
