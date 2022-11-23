@@ -1,13 +1,13 @@
-import { OverlayPage } from '@/components/dom/OverlayPage'
 import { MaterialsScene } from '@/scenes/j-materials'
+import { loadContent } from '@/utilities/loadContent'
 
-const Page = () => (
-  <>
-    <OverlayPage />
-    <h1>Materials</h1>
-  </>
-)
+export async function getStaticProps() {
+  const content = await loadContent('material-example.tsx')
+  return { props: { content } }
+}
 
-Page.canvas = MaterialsScene
+const Page = () => <></>
+
+Page.canvas = (props) => <MaterialsScene {...props} />
 
 export default Page

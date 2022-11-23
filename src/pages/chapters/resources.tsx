@@ -1,13 +1,15 @@
-import { OverlayPage } from '@/components/dom/OverlayPage'
-import { GeometryScene } from '@/scenes/i-geometry'
+import Link from 'next/link'
 
 const Page = () => (
   <>
-    <OverlayPage />
-    <h1>Animations</h1>
+    <ol>
+      <li>
+        <Link href='https://docs.pmnd.rs/react-three-fiber/getting-started/introduction'>
+          React Three Fiber Document
+        </Link>
+      </li>
+    </ol>
   </>
 )
-
-Page.canvas = () => <GeometryScene />
 
 export default Page

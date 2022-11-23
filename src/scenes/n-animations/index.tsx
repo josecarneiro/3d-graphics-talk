@@ -6,6 +6,7 @@ import { DefaultCamera } from '@/components/canvas/DefaultCamera'
 import { DefaultControls } from '@/components/canvas/DefaultControls'
 import { Center } from '@react-three/drei'
 import { CodeExample } from '@/components/canvas/CodeExample'
+import { GenericObjectShowcase } from '@/components/canvas/GenericObjectShowcaseProps'
 // Code Block
 
 // Show right and wrong way to do animations
@@ -49,7 +50,12 @@ export const AnimationsScene = ({ content }) => {
       <spotLight position={[-50, 40, -40]} castShadow />
       <pointLight position={[-10, -10, -10]} />
       <Center top>
-        <MovingCube onClick={displayCodeExample} />
+        <GenericObjectShowcase
+          scale={1.5}
+          label={showCodeExample ? undefined : 'Animations'}
+          textOffset={3}>
+          <MovingCube onClick={displayCodeExample} />
+        </GenericObjectShowcase>
       </Center>
     </>
   )

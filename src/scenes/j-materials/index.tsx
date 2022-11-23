@@ -9,8 +9,9 @@ import {
 } from '@/components/canvas/GenericObjectShowcaseProps'
 import { FlowingShaderMaterial } from '@/components/canvas/materials/FlowingShaderMaterial'
 import { Rotate } from '@/components/canvas/Rotate'
-import { Suspense } from 'react'
+import { Suspense, useState } from 'react'
 import { MatCapMaterial } from '../../components/canvas/materials/MatCapMaterial'
+import { CodeExample } from '@/components/canvas/CodeExample'
 
 const MaterialShowcase = ({ children, ...props }: GenericObjectShowcaseProps) => (
   <GenericObjectShowcase {...props}>
@@ -25,52 +26,61 @@ const MaterialShowcase = ({ children, ...props }: GenericObjectShowcaseProps) =>
 
 const MESH_COLOR = 'blue'
 
-export const MaterialsScene = (props) => (
-  <>
-    <Grid />
-    <DefaultCamera />
-    <DefaultControls autoRotate />
-    <ambientLight intensity={0.5} />
-    <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
-    <spotLight position={[50, 40, 40]} castShadow />
-    <spotLight position={[-50, 40, -40]} castShadow />
-    <pointLight position={[-10, -10, -10]} />
-    <Center top>
-      <group scale={1.5}>
-        <MaterialShowcase label='Basic'>
-          <meshBasicMaterial color={MESH_COLOR} />
-        </MaterialShowcase>
-        <MaterialShowcase label='Lambert' position={[2, 0, 0]}>
-          <ambientLight color='black' />
-          <meshLambertMaterial color={MESH_COLOR} />
-        </MaterialShowcase>
-        <MaterialShowcase label='Phong' position={[4, 0, 0]}>
-          <meshPhongMaterial color={MESH_COLOR} />
-        </MaterialShowcase>
-        <MaterialShowcase label='Physical' position={[6, 0, 0]}>
-          <GlossyMaterial color={MESH_COLOR} />
-        </MaterialShowcase>
-        <MaterialShowcase label='Normal' position={[8, 0, 0]}>
-          <meshNormalMaterial />
-        </MaterialShowcase>
-        <MaterialShowcase label='Depth' position={[0, 0, 3]}>
-          <meshDepthMaterial />
-        </MaterialShowcase>
-        <MaterialShowcase label='Standard' position={[2, 0, 3]}>
-          <meshStandardMaterial color={MESH_COLOR} />
-        </MaterialShowcase>
-        <MaterialShowcase label='Toon' position={[4, 0, 3]}>
-          <meshToonMaterial color={MESH_COLOR} />
-        </MaterialShowcase>
-        <MaterialShowcase label='Shader' position={[6, 0, 3]}>
-          <FlowingShaderMaterial />
-        </MaterialShowcase>
-        <Suspense fallback={null}>
-          <MaterialShowcase label='MatCap' position={[8, 0, 3]}>
-            <MatCapMaterial />
+export const MaterialsScene = ({ content }) => {
+  const [showCodeExample, setShowCodeExample] = useState(false)
+  const displayCodeExample = () => {
+    setShowCodeExample(!showCodeExample)
+  }
+  return (
+    <>
+      {showCodeExample && <CodeExample content={content} />}
+      <Grid />
+      <DefaultCamera />
+      <DefaultControls autoRotate />
+      <ambientLight intensity={0.5} />
+      <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
+      <spotLight position={[50, 40, 40]} castShadow />
+      <spotLight position={[-50, 40, -40]} castShadow />
+      <pointLight position={[-10, -10, -10]} />
+      <Center top>
+        <group scale={1.5}>
+          <MaterialShowcase
+            label={showCodeExample ? undefined : 'Basic'}
+            onClick={displayCodeExample}>
+            <meshBasicMaterial color={MESH_COLOR} />
           </MaterialShowcase>
-        </Suspense>
-      </group>
-    </Center>
-  </>
-)
+          <MaterialShowcase label={showCodeExample ? undefined : 'Lambert'} position={[2, 0, 0]}>
+            <ambientLight color='black' />
+            <meshLambertMaterial color={MESH_COLOR} />
+          </MaterialShowcase>
+          <MaterialShowcase label={showCodeExample ? undefined : 'Phong'} position={[4, 0, 0]}>
+            <meshPhongMaterial color={MESH_COLOR} />
+          </MaterialShowcase>
+          <MaterialShowcase label={showCodeExample ? undefined : 'Physical'} position={[6, 0, 0]}>
+            <GlossyMaterial color={MESH_COLOR} />
+          </MaterialShowcase>
+          <MaterialShowcase label={showCodeExample ? undefined : 'Normal'} position={[8, 0, 0]}>
+            <meshNormalMaterial />
+          </MaterialShowcase>
+          <MaterialShowcase label={showCodeExample ? undefined : 'Depth'} position={[0, 0, 3]}>
+            <meshDepthMaterial />
+          </MaterialShowcase>
+          <MaterialShowcase label={showCodeExample ? undefined : 'Standard'} position={[2, 0, 3]}>
+            <meshStandardMaterial color={MESH_COLOR} />
+          </MaterialShowcase>
+          <MaterialShowcase label={showCodeExample ? undefined : 'Toon'} position={[4, 0, 3]}>
+            <meshToonMaterial color={MESH_COLOR} />
+          </MaterialShowcase>
+          <MaterialShowcase label={showCodeExample ? undefined : 'Shader'} position={[6, 0, 3]}>
+            <FlowingShaderMaterial />
+          </MaterialShowcase>
+          <Suspense fallback={null}>
+            <MaterialShowcase label={showCodeExample ? undefined : 'MatCap'} position={[8, 0, 3]}>
+              <MatCapMaterial />
+            </MaterialShowcase>
+          </Suspense>
+        </group>
+      </Center>
+    </>
+  )
+}
