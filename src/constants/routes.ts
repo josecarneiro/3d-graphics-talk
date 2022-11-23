@@ -7,7 +7,7 @@ export const ROUTES = [
   // { path: '/chapters/worlds', name: 'Worlds' },
   // { path: '/chapters/lights', name: 'Lights' },
   { path: '/chapters/computer-graphics', name: 'Computer Graphics' },
-  { path: '/chapters/open-gl', name: 'OpenGL' },
+  // { path: '/chapters/open-gl', name: 'OpenGL' },
   { path: '/chapters/web-gl', name: 'WebGL' },
   { path: '/chapters/three', name: 'Three.js' },
   { path: '/chapters/r3f', name: '@react-three/fiber' },

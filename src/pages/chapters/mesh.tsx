@@ -1,13 +1,13 @@
-import { OverlayPage } from '@/components/dom/OverlayPage'
 import { MeshScene } from '@/scenes/h-mesh'
+import { loadContent } from '@/utilities/loadContent'
 
-const Page = () => (
-  <>
-    <OverlayPage />
-    <h1>MeshDecomposition</h1>
-  </>
-)
+export async function getStaticProps() {
+  const content = await loadContent('mesh-example.tsx')
+  return { props: { content } }
+}
 
-Page.canvas = MeshScene
+const Page = () => <></>
+
+Page.canvas = (props) => <MeshScene {...props} />
 
 export default Page
