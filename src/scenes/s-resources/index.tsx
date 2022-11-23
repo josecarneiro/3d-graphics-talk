@@ -59,7 +59,7 @@ Page.canvas = (props) => (
     <spotLight position={[50, 40, 40]} castShadow />
     <spotLight position={[-50, 40, -40]} castShadow />
     <pointLight position={[-10, -10, -10]} />
-    <Center>
+    <Center top>
       <WorldContent />
     </Center>
   </>

@@ -18,9 +18,9 @@ export const MeshDecompositionScene = (props) => (
     <spotLight position={[50, 40, 40]} castShadow />
     <spotLight position={[-50, 40, -40]} castShadow />
     <pointLight position={[-10, -10, -10]} />
-    <Center>
+    <Center top>
       <group scale={2}>
-        <GenericObjectShowcase label='Geometry'>
+        <GenericObjectShowcase label={'Geometry  '}>
           <Rotate>
             <mesh>
               <boxGeometry args={[1, 1, 1]} />
@@ -28,10 +28,20 @@ export const MeshDecompositionScene = (props) => (
             </mesh>
           </Rotate>
         </GenericObjectShowcase>
-        <GenericObjectShowcase label='Material' position={[2, 0, 0]}>
+        <GenericObjectShowcase label='+' position={[1, 0, 0]} />
+        <GenericObjectShowcase label={'  Material'} position={[2, 0, 0]}>
           <Rotate>
             <mesh rotation={[-Math.PI / 2, 0.5, 0.9]}>
               <planeGeometry args={[1, 1, 1]} />
+              <GlossyMaterial color={MESH_COLOR} />
+            </mesh>
+          </Rotate>
+        </GenericObjectShowcase>
+        <GenericObjectShowcase label='=' position={[3.75, 0, 0]} />
+        <GenericObjectShowcase label='Mesh' position={[5, 0, 0]}>
+          <Rotate>
+            <mesh>
+              <boxGeometry args={[1, 1, 1]} />
               <GlossyMaterial color={MESH_COLOR} />
             </mesh>
           </Rotate>

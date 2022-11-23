@@ -1,3 +1,5 @@
+import { DoubleSide } from 'three'
+
 import type { MeshBasicMaterialProps } from '@react-three/fiber'
 
 export const TransparentMaterial = ({
@@ -5,5 +7,5 @@ export const TransparentMaterial = ({
   color = 'white',
   ...props
 }: MeshBasicMaterialProps) => (
-  <meshBasicMaterial transparent opacity={opacity} color={color} {...props} />
+  <meshBasicMaterial side={DoubleSide} transparent opacity={opacity} color={color} {...props} />
 )

@@ -26,7 +26,7 @@ export const GeometryScene = () => (
     <DefaultCamera />
     <DefaultControls autoRotate />
     <DefaultLights />
-    <Center>
+    <Center top>
       <group scale={2}>
         <GeometryShowcase label='Box'>
           <boxGeometry args={[1, 1, 1]} />

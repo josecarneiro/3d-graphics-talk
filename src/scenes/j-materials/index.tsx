@@ -33,7 +33,7 @@ export const MaterialsScene = (props) => (
     <spotLight position={[50, 40, 40]} castShadow />
     <spotLight position={[-50, 40, -40]} castShadow />
     <pointLight position={[-10, -10, -10]} />
-    <Center>
+    <Center top>
       <group scale={1.5}>
         <MaterialShowcase label='Basic'>
           <meshBasicMaterial color={MESH_COLOR} />
