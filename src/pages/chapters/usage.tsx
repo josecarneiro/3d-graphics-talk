@@ -1,13 +1,18 @@
 import { OverlayPage } from '@/components/dom/OverlayPage'
-import { GeometryScene } from '@/scenes/i-geometry'
+import { UsageScene } from '@/scenes/g-usage'
+import { loadContent } from '@/utilities/loadContent'
 
 const Page = () => (
   <>
     <OverlayPage />
-    <h1>Geometry</h1>
   </>
 )
 
-Page.canvas = () => <GeometryScene />
+export async function getStaticProps() {
+  const content = await loadContent('usage-example.tsx')
+  return { props: { content } }
+}
+
+Page.canvas = (props) => <UsageScene {...props} />
 
 export default Page

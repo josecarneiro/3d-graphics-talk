@@ -1,5 +1,7 @@
 import { ComponentProps, useMemo } from 'react'
-import { Sandpack } from '@codesandbox/sandpack-react'
+import { Sandpack, SandpackProps } from '@codesandbox/sandpack-react'
+
+type SandpackFiles = SandpackProps['files']
 
 const REACT_THREE_FIBER_DEPENDENCIES = {
   '@react-three/drei': '^9.40.0',
@@ -23,13 +25,17 @@ export default App
 
 const DEFAULT_TEMPLATE = 'react-ts'
 
-export type CodeExampleInnerProps = { content?: string } & ComponentProps<typeof Sandpack>
+export type CodeExampleInnerProps = ComponentProps<typeof Sandpack> & {
+  content?: string
+  additionalFiles?: SandpackFiles
+}
 
 export const CodeExampleInner = ({
   content = DEFAULT_FILE_CONTENT,
   template = DEFAULT_TEMPLATE,
+  additionalFiles = {},
 }: CodeExampleInnerProps) => {
-  const files = useMemo(
+  const files = useMemo<SandpackFiles>(
     () => ({
       ...(template === 'react-ts' && {
         '/App.tsx': content.trim(),
@@ -40,16 +46,15 @@ export const CodeExampleInner = ({
       ...(template === 'vanilla-ts' && {
         '/src/index.ts': content.trim(),
       }),
+      ...additionalFiles,
     }),
-    [content, template],
+    [content, template, additionalFiles],
   )
   return (
     <Sandpack
       template={template}
       files={files}
-      customSetup={{
-        dependencies: { ...REACT_THREE_FIBER_DEPENDENCIES },
-      }}
+      customSetup={{ dependencies: { ...REACT_THREE_FIBER_DEPENDENCIES } }}
     />
   )
 }

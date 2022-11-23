@@ -18,16 +18,6 @@
   }
 }
 
-/* .sp-wrapper {
-  padding: 1em;
-}
-.sp-layout {
-  padding: 1em;
-}
-.sp-tab-button {
-  padding: 1em;
-} */
-
 .CodeExampleHtmlWrapper {
   width: calc(100vw - 2em);
   height: calc(100vh - 8em);
@@ -44,4 +34,12 @@
 .sp-stack {
   width: 100%;
   height: 100% !important;
+}
+
+.OverlayGeneric {
+  pointer-events: none;
+}
+
+.OverlayGeneric a {
+  pointer-events: all;
 }
