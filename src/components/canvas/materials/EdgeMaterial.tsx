@@ -5,7 +5,7 @@ import type { ComponentProps } from 'react'
 
 export const EdgeMaterial = (props: ComponentProps<typeof Edges>) => (
   <>
-    <TransparentMaterial />
+    <TransparentMaterial opacity={1} />
     <Edges {...props} threshold={1} />
   </>
 )

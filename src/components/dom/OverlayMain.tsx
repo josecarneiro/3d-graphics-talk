@@ -7,8 +7,7 @@ export const OverlayMain = () => (
       <h1>Main Header</h1>
     </header>
     <footer>
-      <h1>Main Footer</h1>
-      {/* <Navigation /> */}
+      <h1>José Carneiro | hello@josecarnei.ro</h1>
     </footer>
   </OverlayGeneric>
 )

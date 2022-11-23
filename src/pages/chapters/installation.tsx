@@ -1,5 +1,5 @@
 import { OverlayPage } from '@/components/dom/OverlayPage'
-import { GeometryScene } from '@/scenes/i-geometry'
+import { InstallationScene } from '@/scenes/f-installation'
 
 const Page = () => (
   <>
@@ -8,6 +8,6 @@ const Page = () => (
   </>
 )
 
-Page.canvas = () => <GeometryScene />
+Page.canvas = () => <InstallationScene />
 
 export default Page

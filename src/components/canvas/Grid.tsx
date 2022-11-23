@@ -1,10 +1,11 @@
 import { Instance, Instances } from '@react-three/drei'
 
-const DARK_GRID_COLOR = '#999'
+// const DARK_GRID_COLOR = '#999'
 // const DARK_GRID_COLOR = '#aaa'
+const DARK_GRID_COLOR = '#bbb'
 // const DARK_GRID_COLOR = '#000'
-const LIGHT_GRID_COLOR = '#bbb'
-// const LIGHT_GRID_COLOR = '#ccc'
+// const LIGHT_GRID_COLOR = '#bbb'
+const LIGHT_GRID_COLOR = '#ccc'
 // const LIGHT_GRID_COLOR = '#aaa'
 
 export const Grid = ({ number = 23, lineWidth = 0.026, height = 0.5 }) => (

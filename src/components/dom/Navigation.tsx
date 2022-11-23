@@ -8,10 +8,10 @@ export const Navigation = () => {
   const previousRoute = ROUTES[matchingRouteIndex - 1]
   const nextRoute = ROUTES[matchingRouteIndex + 1]
   return (
-    <>
+    <span>
       {previousRoute && <Link href={previousRoute.path}>{`<- ${previousRoute.name}`}</Link>}
-      {previousRoute && nextRoute && <span> | </span>}
+      {previousRoute && nextRoute && ` | `}
       {nextRoute && <Link href={nextRoute.path}>{`${nextRoute.name} ->`}</Link>}
-    </>
+    </span>
   )
 }

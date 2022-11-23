@@ -4,7 +4,7 @@ import { OverlayGeneric } from './OverlayGeneric'
 export const OverlayPage = () => (
   <OverlayGeneric>
     <header>
-      <h1>Page Header</h1>
+      <h1>Web 3D Graphics</h1>
     </header>
     <footer className='flex justify-end'>
       <Navigation />

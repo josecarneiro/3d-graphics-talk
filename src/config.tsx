@@ -6,7 +6,7 @@ const description =
   'The easiest and fastest way to create a 3D website using React Three Fiber and NextJS'
 const author = 'Author'
 
-export default function Header({ title = titleDefault }) {
+const Header = ({ title = titleDefault }) => {
   return (
     <Head>
       {/* Recommended Meta Tags */}
@@ -43,6 +43,8 @@ export default function Header({ title = titleDefault }) {
       <link rel='manifest' href='/manifest.json' />
       <link rel='mask-icon' color='#000000' href='/icons/safari-pinned-tab.svg' />
       <link rel='apple-touch-startup-image' href='/startup.png' />
+      <link rel='preconnect' href='https://fonts.googleapis.com' />
+      <link rel='preconnect' href='https://fonts.gstatic.com' />
 
       {/* Meta Tags for HTML pages on Mobile */}
       {/* <meta name="format-detection" content="telephone=yes"/>
@@ -60,3 +62,5 @@ export default function Header({ title = titleDefault }) {
     </Head>
   )
 }
+
+export default Header

@@ -6,11 +6,17 @@ import { OverlayMain } from '@/components/dom/OverlayMain'
 import { Leva } from 'leva'
 import '@/styles/index.css'
 
+// import { Roboto_Mono } from '@next/font/google'
+
+// const robotoMono = Roboto_Mono({
+//   variable: '--roboto-mono-font',
+// })
+
 const Scene = dynamic(() => import('@/components/canvas/Scene'), { ssr: true })
 
 const DEFAULT_TITLE = '3D Web Graphics'
 
-export default function App({ Component, pageProps = { title: DEFAULT_TITLE } }) {
+const App = ({ Component, pageProps = { title: DEFAULT_TITLE } }) => {
   const ref = useRef()
   return (
     <>
@@ -31,3 +37,5 @@ export default function App({ Component, pageProps = { title: DEFAULT_TITLE } })
     </>
   )
 }
+
+export default App
