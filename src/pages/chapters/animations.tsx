@@ -4,8 +4,8 @@ import { AnimationsScene } from '@/scenes/n-animations'
 import { loadContent } from '../../utilities/loadContent'
 
 export async function getStaticProps() {
-  const text = await loadContent('content.tsx')
-  return { props: { text } }
+  const content = await loadContent('animation-example.tsx')
+  return { props: { content } }
 }
 
 const Page = (props) => (

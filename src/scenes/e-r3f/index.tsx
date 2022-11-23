@@ -18,7 +18,7 @@ const TruckModel = (props) => (
   />
 )
 
-export const R3fScene = ({ exampleText }) => {
+export const R3fScene = ({ content }) => {
   const [showCodeExample, setShowCodeExample] = useState(false)
   const displayCodeExample = () => {
     setShowCodeExample(!showCodeExample)
@@ -28,7 +28,7 @@ export const R3fScene = ({ exampleText }) => {
   }
   return (
     <>
-      {showCodeExample && <CodeExample onClose={hideCodeExample} content={exampleText} />}
+      {showCodeExample && <CodeExample onClose={hideCodeExample} content={content} />}
       <Grid />
       <DefaultCamera />
       <DefaultControls autoRotate />

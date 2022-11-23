@@ -1,4 +1,7 @@
-export const DefaultLights = () => (
+import { Environment } from '@react-three/drei'
+import { ComponentProps } from 'react'
+
+export const BaseLights = () => (
   <>
     <ambientLight intensity={0.5} />
     {/* <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
@@ -21,3 +24,15 @@ export const DefaultLights = () => (
     />
   </>
 )
+
+const Lights = ({ preset }: Pick<ComponentProps<typeof Environment>, 'preset'>) => (
+  <>
+    <ambientLight intensity={1} />
+    <pointLight position={[20, 30, 10]} />
+    <pointLight position={[-10, -10, -10]} color='blue' />
+    <Environment preset={preset} />
+  </>
+)
+
+// export const DefaultLights = BaseLights
+export const DefaultLights = Lights

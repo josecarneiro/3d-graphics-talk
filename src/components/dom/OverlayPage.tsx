@@ -1,6 +1,9 @@
 import { Navigation } from './Navigation'
 import { OverlayGeneric } from './OverlayGeneric'
 
+/**
+ * @deprecated
+ */
 export const OverlayPage = () => (
   <></>
   // <OverlayGeneric>

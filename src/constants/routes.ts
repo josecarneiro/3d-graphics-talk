@@ -20,7 +20,7 @@ export const ROUTES = [
   { path: '/chapters/cameras', name: 'Cameras' },
   { path: '/chapters/animations', name: 'Animations' },
   { path: '/chapters/physics', name: 'Physics' },
-  { path: '/chapters/worlds', name: 'Worlds' },
+  // { path: '/chapters/worlds', name: 'Worlds' },
   { path: '/chapters/performance-animations', name: 'Performance - Animations' },
   { path: '/chapters/performance-instantiation', name: 'Performance - Instantiation' },
   { path: '/chapters/resources', name: 'Resources' },

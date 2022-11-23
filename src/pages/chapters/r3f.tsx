@@ -3,14 +3,13 @@ import { R3fScene } from '@/scenes/e-r3f'
 import { loadContent } from '@/utilities/loadContent'
 
 export async function getStaticProps() {
-  const exampleText = await loadContent('r3f-example.tsx')
-  return { props: { exampleText } }
+  const content = await loadContent('r3f-example.tsx')
+  return { props: { content } }
 }
 
 const Page = () => (
   <>
     <OverlayPage />
-    <h1>Geometry</h1>
   </>
 )
 

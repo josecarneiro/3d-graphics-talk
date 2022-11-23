@@ -7,10 +7,6 @@ import { useState } from 'react'
 import { CodeExample } from '@/components/canvas/CodeExample'
 import { Model } from '../../components/canvas/Model'
 
-import foo from './example.json'
-
-const CODE_EXAMPLE_CONTENT = foo
-
 const TruckModel = (props) => (
   <Model
     url='https://market-assets.fra1.cdn.digitaloceanspaces.com/market-assets/models/ice-cream-truck/model.gltf'
@@ -18,7 +14,7 @@ const TruckModel = (props) => (
   />
 )
 
-export const WebGlScene = () => {
+export const WebGlScene = ({ content }) => {
   const [showCodeExample, setShowCodeExample] = useState(false)
   const displayCodeExample = () => {
     setShowCodeExample(!showCodeExample)
@@ -29,11 +25,7 @@ export const WebGlScene = () => {
   return (
     <>
       {showCodeExample && (
-        <CodeExample
-          onClose={hideCodeExample}
-          content={CODE_EXAMPLE_CONTENT}
-          template='vanilla-ts'
-        />
+        <CodeExample onClose={hideCodeExample} content={content} template='vanilla-ts' />
       )}
       <Grid />
       <DefaultCamera />
