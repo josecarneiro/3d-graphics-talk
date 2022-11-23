@@ -23,7 +23,7 @@ const GeometryShowcase = ({ children, ...props }: GenericObjectShowcaseProps) =>
   </GenericObjectShowcase>
 )
 
-export const GeometryScene = ({ content }) => {
+export const GeometryScene = ({ content }: { content?: any }) => {
   const [showCodeExample, setShowCodeExample] = useState(false)
   const displayCodeExample = () => setShowCodeExample(true)
   return (
