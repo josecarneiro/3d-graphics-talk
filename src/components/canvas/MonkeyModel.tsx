@@ -1,12 +1,9 @@
 import { Suspense } from 'react'
 import { useGLTF } from '@react-three/drei'
-
-const URL =
-  'https://market-assets.fra1.cdn.digitaloceanspaces.com/market-assets/models/suzanne-high-poly/model.gltf'
-// const URL = '/suzanne.gltf'
+import { MONKEY_MODEL_URL } from '@/constants/paths'
 
 const MonkeyMesh = ({ children, ...props }) => {
-  const { nodes } = useGLTF(URL)
+  const { nodes } = useGLTF(MONKEY_MODEL_URL)
   return (
     <mesh geometry={(nodes.Suzanne as any).geometry} {...props}>
       {children}
@@ -14,7 +11,7 @@ const MonkeyMesh = ({ children, ...props }) => {
   )
 }
 
-useGLTF.preload('/suzanne.gltf')
+useGLTF.preload(MONKEY_MODEL_URL)
 
 export const MonkeyModel = (props) => (
   <Suspense fallback={null}>

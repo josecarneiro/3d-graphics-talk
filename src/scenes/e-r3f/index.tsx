@@ -5,36 +5,28 @@ import { DefaultLights } from '@/components/canvas/DefaultLights'
 import { DefaultControls } from '@/components/canvas/DefaultControls'
 import { useState } from 'react'
 import { CodeExample } from '@/components/canvas/CodeExample'
-import { Model } from '../../components/canvas/Model'
-
-// import foo from './example.json'
-
-// const CODE_EXAMPLE_CONTENT = foo
-
-const TruckModel = (props) => (
-  <Model
-    url='https://market-assets.fra1.cdn.digitaloceanspaces.com/market-assets/models/ice-cream-truck/model.gltf'
-    {...props}
-  />
-)
+import { GenericObjectShowcase } from '@/components/canvas/GenericObjectShowcaseProps'
+import { WolfModel } from '@/components/canvas/models/WolfModel'
 
 export const R3fScene = ({ content }) => {
   const [showCodeExample, setShowCodeExample] = useState(false)
   const displayCodeExample = () => {
     setShowCodeExample(!showCodeExample)
   }
-  const hideCodeExample = () => {
-    setShowCodeExample(false)
-  }
+  // const hideCodeExample = () => {
+  //   setShowCodeExample(false)
+  // }
   return (
     <>
-      {showCodeExample && <CodeExample onClose={hideCodeExample} content={content} />}
+      {showCodeExample && <CodeExample content={content} />}
       <Grid />
       <DefaultCamera />
-      <DefaultControls autoRotate />
+      <DefaultControls autoRotate enableZoom={!showCodeExample} angle={Math.PI / 2.5} />
       <DefaultLights />
       <Center top>
-        <TruckModel onClick={displayCodeExample} scale={2} />
+        <GenericObjectShowcase label={!showCodeExample ? '@react-three/fiber' : undefined}>
+          <WolfModel onClick={displayCodeExample} scale={5} rotation={[0, Math.PI / 2, 0]} />
+        </GenericObjectShowcase>
       </Center>
     </>
   )

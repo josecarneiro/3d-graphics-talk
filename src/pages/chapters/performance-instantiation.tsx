@@ -1,13 +1,13 @@
-import { OverlayPage } from '@/components/dom/OverlayPage'
-import { GeometryScene } from '@/scenes/i-geometry'
+import { InstantiationScene } from '@/scenes/r-performance-instantiation'
+import { loadContent } from '@/utilities/loadContent'
 
-const Page = () => (
-  <>
-    <OverlayPage />
-    <h1>Geometry</h1>
-  </>
-)
+export async function getStaticProps() {
+  const content = await loadContent('instantiation-example.tsx')
+  return { props: { content } }
+}
 
-Page.canvas = () => <GeometryScene />
+const Page = () => <></>
+
+Page.canvas = (props) => <InstantiationScene {...props} />
 
 export default Page

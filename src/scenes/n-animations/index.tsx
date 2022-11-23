@@ -42,7 +42,7 @@ export const AnimationsScene = ({ content }) => {
       {showCodeExample && <CodeExample content={content} />}
       <Grid />
       <DefaultCamera />
-      <DefaultControls autoRotate />
+      <DefaultControls autoRotate enableZoom={!showCodeExample} />
       <ambientLight intensity={0.5} />
       <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
       <spotLight position={[50, 40, 40]} castShadow />

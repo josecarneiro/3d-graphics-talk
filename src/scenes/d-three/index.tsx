@@ -5,14 +5,8 @@ import { DefaultLights } from '@/components/canvas/DefaultLights'
 import { DefaultControls } from '@/components/canvas/DefaultControls'
 import { useState } from 'react'
 import { CodeExample } from '@/components/canvas/CodeExample'
-import { Model } from '../../components/canvas/Model'
-
-const TruckModel = (props) => (
-  <Model
-    url='https://market-assets.fra1.cdn.digitaloceanspaces.com/market-assets/models/ice-cream-truck/model.gltf'
-    {...props}
-  />
-)
+import { YoungGoblinModel } from '@/components/canvas/models/YoungGoblinModel'
+import { GenericObjectShowcase } from '@/components/canvas/GenericObjectShowcaseProps'
 
 export const ThreeScene = ({ content }) => {
   const [showCodeExample, setShowCodeExample] = useState(false)
@@ -29,10 +23,12 @@ export const ThreeScene = ({ content }) => {
       )}
       <Grid />
       <DefaultCamera />
-      <DefaultControls autoRotate />
+      <DefaultControls autoRotate enableZoom={!showCodeExample} angle={Math.PI / 2.5} />
       <DefaultLights />
       <Center top>
-        <TruckModel onClick={displayCodeExample} scale={2} />
+        <GenericObjectShowcase label={!showCodeExample ? 'Three.js' : undefined} scale={1.5}>
+          <YoungGoblinModel onClick={displayCodeExample} scale={5} rotation={[0, Math.PI / 2, 0]} />
+        </GenericObjectShowcase>
       </Center>
     </>
   )

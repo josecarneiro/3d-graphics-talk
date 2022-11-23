@@ -1,7 +1,7 @@
 import { Grid } from '@/components/canvas/Grid'
 import { DefaultCamera } from '@/components/canvas/DefaultCamera'
 import { DefaultControls } from '@/components/canvas/DefaultControls'
-import { Center, MeshRefractionMaterial, useTexture } from '@react-three/drei'
+import { Center } from '@react-three/drei'
 import { GlossyMaterial } from '@/components/canvas/materials'
 import {
   GenericObjectShowcaseProps,
@@ -9,8 +9,8 @@ import {
 } from '@/components/canvas/GenericObjectShowcaseProps'
 import { FlowingShaderMaterial } from '@/components/canvas/materials/FlowingShaderMaterial'
 import { Rotate } from '@/components/canvas/Rotate'
-import { MonkeyModel } from '../../components/canvas/MonkeyModel'
 import { Suspense } from 'react'
+import { MatCapMaterial } from '../../components/canvas/materials/MatCapMaterial'
 
 const MaterialShowcase = ({ children, ...props }: GenericObjectShowcaseProps) => (
   <GenericObjectShowcase {...props}>
@@ -24,11 +24,6 @@ const MaterialShowcase = ({ children, ...props }: GenericObjectShowcaseProps) =>
 )
 
 const MESH_COLOR = 'blue'
-
-const MatCapMaterial = () => {
-  const [matcap] = useTexture(['/metal-anisotropic'])
-  return <meshMatcapMaterial matcap={matcap} />
-}
 
 export const MaterialsScene = (props) => (
   <>
@@ -50,7 +45,6 @@ export const MaterialsScene = (props) => (
           <meshLambertMaterial color={MESH_COLOR} />
         </MaterialShowcase>
         <MaterialShowcase label='Phong' position={[4, 0, 0]}>
-          {/* <GlossyMaterial color={MESH_COLOR} /> */}
           <meshPhongMaterial color={MESH_COLOR} />
         </MaterialShowcase>
         <MaterialShowcase label='Physical' position={[6, 0, 0]}>

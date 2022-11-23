@@ -1,5 +1,5 @@
 import { Environment } from '@react-three/drei'
-import { ComponentProps } from 'react'
+import { ComponentProps, Suspense } from 'react'
 
 export const BaseLights = () => (
   <>
@@ -25,14 +25,18 @@ export const BaseLights = () => (
   </>
 )
 
-const Lights = ({ preset }: Pick<ComponentProps<typeof Environment>, 'preset'>) => (
+// export const DefaultLights = BaseLights
+
+const Lights = ({ preset = 'lobby' }: Pick<ComponentProps<typeof Environment>, 'preset'>) => (
   <>
-    <ambientLight intensity={1} />
+    {/* <ambientLight intensity={1} /> */}
+    <ambientLight intensity={0.5} />
     <pointLight position={[20, 30, 10]} />
     <pointLight position={[-10, -10, -10]} color='blue' />
-    <Environment preset={preset} />
+    <Suspense fallback={null}>
+      <Environment preset={preset} />
+    </Suspense>
   </>
 )
 
-// export const DefaultLights = BaseLights
 export const DefaultLights = Lights

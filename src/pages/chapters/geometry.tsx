@@ -1,12 +1,6 @@
-import { OverlayPage } from '@/components/dom/OverlayPage'
 import { GeometryScene } from '@/scenes/i-geometry'
 
-const Page = () => (
-  <>
-    <OverlayPage />
-    <h1>Geometry</h1>
-  </>
-)
+const Page = () => <></>
 
 Page.canvas = () => <GeometryScene />
 
