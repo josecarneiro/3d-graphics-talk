@@ -5,9 +5,7 @@ import { useFBO, Center, Text3D } from '@react-three/drei'
 import { MeshRefractionMaterial } from './shaders/MeshRefractionMaterial'
 
 import type { Group } from 'three'
-
-const AERODYNAMICS_WORKSHOP_HDR =
-  'https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/aerodynamics_workshop_1k.hdr'
+import { AERODYNAMICS_WORKSHOP_HDR } from '@/constants/paths'
 
 const TEXT_LETTER_SPACING = -0.03
 const TEXT_SCALE = 5

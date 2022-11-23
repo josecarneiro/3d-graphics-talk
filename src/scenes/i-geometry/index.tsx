@@ -8,6 +8,7 @@ import {
   GenericObjectShowcase,
 } from '@/components/canvas/GenericObjectShowcaseProps'
 import { DefaultLights } from '@/components/canvas/DefaultLights'
+import { MonkeyModel } from '@/components/canvas/MonkeyModel'
 
 const MESH_COLOR = 'blue'
 
@@ -46,6 +47,11 @@ export const GeometryScene = () => (
         <GeometryShowcase label='Torus Knot' position={[2, 0, 3]}>
           <torusKnotGeometry args={[0.55, 0.125, 50, 10]} />
         </GeometryShowcase>
+        <GenericObjectShowcase label='Custom' position={[4, 0, 3]}>
+          <MonkeyModel position={[0, -0.5, 0]}>
+            <EdgeMaterial color={MESH_COLOR} />
+          </MonkeyModel>
+        </GenericObjectShowcase>
       </group>
     </Center>
   </>

@@ -1,5 +1,5 @@
 import { OverlayPage } from '@/components/dom/OverlayPage'
-import { GeometryScene } from '@/scenes/i-geometry'
+import { AnimationsScene } from '@/scenes/n-animations'
 
 const Page = () => (
   <>
@@ -8,6 +8,6 @@ const Page = () => (
   </>
 )
 
-Page.canvas = () => <GeometryScene />
+Page.canvas = () => <AnimationsScene />
 
 export default Page

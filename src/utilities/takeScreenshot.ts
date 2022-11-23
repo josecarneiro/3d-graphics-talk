@@ -4,7 +4,10 @@ export const takeScreenshot = () => {
   link.setAttribute('download', 'canvas.png')
   link.setAttribute(
     'href',
-    document.querySelector('canvas').toDataURL('image/png').replace('image/png', 'image/octet-stream'),
+    document
+      .querySelector('canvas')
+      .toDataURL('image/png')
+      .replace('image/png', 'image/octet-stream'),
   )
   link.click()
 }
