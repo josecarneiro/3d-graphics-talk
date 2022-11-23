@@ -7,9 +7,9 @@ import { useState } from 'react'
 import { CodeExample } from '@/components/canvas/CodeExample'
 import { Model } from '../../components/canvas/Model'
 
-import foo from './example.json'
+// import foo from './example.json'
 
-const CODE_EXAMPLE_CONTENT = foo
+// const CODE_EXAMPLE_CONTENT = foo
 
 const TruckModel = (props) => (
   <Model
@@ -18,7 +18,7 @@ const TruckModel = (props) => (
   />
 )
 
-export const R3fScene = () => {
+export const R3fScene = ({ exampleText }) => {
   const [showCodeExample, setShowCodeExample] = useState(false)
   const displayCodeExample = () => {
     setShowCodeExample(!showCodeExample)
@@ -28,7 +28,7 @@ export const R3fScene = () => {
   }
   return (
     <>
-      {showCodeExample && <CodeExample onClose={hideCodeExample} content={CODE_EXAMPLE_CONTENT} />}
+      {showCodeExample && <CodeExample onClose={hideCodeExample} content={exampleText} />}
       <Grid />
       <DefaultCamera />
       <DefaultControls autoRotate />

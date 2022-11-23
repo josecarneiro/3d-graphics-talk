@@ -54,7 +54,15 @@ if (process.env.EXPORT !== 'true') {
   }
 }
 
-const KEYS_TO_OMIT = ['webpackDevMiddleware', 'configOrigin', 'target', 'analyticsId', 'webpack5', 'amp', 'assetPrefix']
+const KEYS_TO_OMIT = [
+  'webpackDevMiddleware',
+  'configOrigin',
+  'target',
+  'analyticsId',
+  'webpack5',
+  'amp',
+  'assetPrefix',
+]
 
 module.exports = (_phase, { defaultConfig }) => {
   const plugins = [[withPWA], [withBundleAnalyzer, {}]]

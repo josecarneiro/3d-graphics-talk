@@ -4,8 +4,7 @@ import { Color, Mesh, MeshPhongMaterial } from 'three'
 import { Grid } from '@/components/canvas/Grid'
 import { DefaultCamera } from '@/components/canvas/DefaultCamera'
 import { DefaultControls } from '@/components/canvas/DefaultControls'
-import { Center } from '@react-three/drei'
-
+import { Center, Html } from '@react-three/drei'
 // Code Block
 
 // Show right and wrong way to do animations
@@ -32,8 +31,9 @@ const MovingCube = () => {
   )
 }
 
-export const AnimationsScene = () => (
+export const AnimationsScene = ({ text }) => (
   <>
+    <Html>{text}</Html>
     <Grid />
     <DefaultCamera />
     <DefaultControls autoRotate />
