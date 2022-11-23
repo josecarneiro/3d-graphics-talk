@@ -8,7 +8,7 @@ import { Rotate } from '@/components/canvas/Rotate'
 
 const MESH_COLOR = 'blue'
 
-export const MeshDecompositionScene = (props) => (
+export const MeshScene = (props) => (
   <>
     <Grid />
     <DefaultCamera />
